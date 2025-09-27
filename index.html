@@ -5,96 +5,607 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open Source Day 2025 - Ahmedabad</title>
   <meta name="description" content="Open Source Day 2025 - community-driven event celebrating open source innovation.">
+  
+  <!-- Google Fonts - Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    :root{
-      --accent:#0f766e;
-      --accent-2:#064e3b;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --bg:#f8fafc;
-      --glass: rgba(255,255,255,0.6);
-      --max-width:1200px;
-      --radius:12px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* ==========================================================================
+       CSS CUSTOM PROPERTIES (VARIABLES)
+       ========================================================================== */
+    :root {
+      /* Colors */
+      --primary-accent: #0f766e;
+      --primary-accent-dark: #064e3b;
+      --text-muted: #6b7280;
+      --text-primary: #0f172a;
+      --card-bg: #ffffff;
+      --card-bg-glass: rgba(255,255,255,0.8);
+      --border-light: rgba(2,6,23,0.04);
+      --border-dashed: rgba(2,6,23,0.03);
+      --shadow-light: rgba(16,24,40,0.06);
+      --shadow-medium: rgba(2,6,23,0.06);
+      --shadow-strong: rgba(2,6,23,0.08);
+      
+      /* Background Gradients */
+      --bg-primary: linear-gradient(135deg, #fef7ff 0%, #f0f9ff 25%, #f0fdf4 50%, #fefce8 75%, #fef2f2 100%);
+      --bg-hero: linear-gradient(145deg, rgba(255,247,255,0.9) 0%, rgba(240,249,255,0.9) 30%, rgba(240,253,244,0.9) 70%, rgba(254,252,232,0.9) 100%);
+      --bg-section-alt: linear-gradient(135deg, rgba(240,249,255,0.3) 0%, rgba(240,253,244,0.3) 50%, rgba(254,252,232,0.3) 100%);
+      --bg-card-gradient: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(248,250,252,0.9));
+      --bg-sponsor: linear-gradient(90deg, #e6fffa, #f0fdf4);
+      --bg-avatar: linear-gradient(135deg, #eef2ff, #eff6ff);
+      --bg-button-primary: linear-gradient(135deg, var(--primary-accent), var(--primary-accent-dark));
+      --bg-stat: linear-gradient(145deg, rgba(255,255,255,0.7), rgba(255,255,255,0.9));
+      
+      /* Sizing */
+      --max-width: 1200px;
+      --border-radius: 12px;
+      --border-radius-large: 16px;
+      --border-radius-small: 8px;
+      
+      /* Typography */
+      --font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --font-weight-extrabold: 800;
+      --font-weight-black: 900;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#f8fafc 0%, #eef2ff 100%);color:#0f172a;line-height:1.45}
-    .container{width:95%;max-width:var(--max-width);margin:0 auto;padding:36px 0}
 
-    /* NAV */
-    header{position:sticky;top:0;backdrop-filter:blur(6px);background:rgba(255,255,255,0.7);z-index:60;border-bottom:1px solid rgba(2,6,23,0.04)}
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .logo{display:flex;gap:12px;align-items:center}
-    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
-    .cta{display:flex;gap:10px}
-    .btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
-    .btn-primary{background:var(--accent);color:white}
-    .btn-ghost{background:transparent;border:1px solid rgba(15,118,110,0.12);color:var(--accent-2)}
-    .hamburger{display:none;border:0;background:transparent}
-
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
-    .kicker{font-weight:800;letter-spacing:3px;color:var(--accent-2);font-size:14px}
-    .title{font-size:48px;line-height:0.95;margin:10px 0 12px;font-weight:900}
-    .lead{color:var(--muted);margin-bottom:18px;max-width:55ch}
-    .hero .actions{display:flex;gap:12px;margin-top:12px}
-    .stats{display:flex;gap:14px;margin-top:18px}
-    .stat{background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.9));padding:14px;border-radius:12px;min-width:110px;text-align:center;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
-    .stat strong{display:block;font-size:20px}
-    .card-right{background:var(--card);padding:22px;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
-    .date{font-weight:800}
-    .countdown{display:flex;gap:12px;justify-content:center;margin-top:10px}
-    .countdown .box{background:#f1f5f9;padding:12px 14px;border-radius:10px;text-align:center;min-width:64px}
-    .countdown .num{font-size:20px;font-weight:800}
-
-    /* SECTIONS */
-    section{padding:48px 0;border-top:1px dashed rgba(2,6,23,0.03)}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
-    .sponsors{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-    .sponsor-logo{min-width:90px;min-height:48px;background:linear-gradient(90deg,#e6fffa,#f0fdf4);display:flex;align-items:center;justify-content:center;border-radius:8px;padding:8px;font-weight:700;color:var(--accent-2)}
-
-    /* Speakers */
-    .speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .speaker{display:flex;gap:12px;align-items:flex-start}
-    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#eef2ff,#eff6ff);display:flex;align-items:center;justify-content:center;font-weight:800}
-    .speaker h4{margin:0 0 6px}
-    .speaker p{margin:0;color:var(--muted);font-size:14px}
-
-    /* Tickets */
-    .tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .ticket{border-radius:12px;padding:18px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(15,118,110,0.06)}
-    .price{font-size:22px;font-weight:900;margin:6px 0}
-    .coupon{font-size:13px;color:var(--muted)}
-
-    /* Footer */
-    footer{padding:28px 0;color:var(--muted)}
-    .socials{display:flex;gap:12px}
-
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      nav ul{display:none}
-      .hamburger{display:block}
+    /* ==========================================================================
+       BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
-    @media (max-width:520px){
-      .title{font-size:36px}
-      .logo .mark{width:40px;height:40px}
+
+    body {
+      margin: 0;
+      background: var(--bg-primary);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.45;
+      font-family: var(--font-family);
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 200, 198, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* ==========================================================================
+       LAYOUT COMPONENTS
+       ========================================================================== */
+    .container {
+      width: 95%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 36px 0;
+    }
+
+    /* ==========================================================================
+       HEADER COMPONENT
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: var(--bg-hero);
+      z-index: 60;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .header__nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .header__logo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .header__logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--bg-button-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: var(--font-weight-bold);
+      box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+    }
+
+    .header__nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+
+    .header__nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: var(--font-weight-semibold);
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .header__nav a:hover {
+      color: var(--primary-accent);
+    }
+
+    .header__hamburger {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       BUTTON COMPONENTS
+       ========================================================================== */
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      font-weight: var(--font-weight-bold);
+      font-family: var(--font-family);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn--primary {
+      background: var(--bg-button-primary);
+      color: white;
+      box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.4);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border: 1px solid rgba(15,118,110,0.12);
+      color: var(--primary-accent-dark);
+    }
+
+    .btn--ghost:hover {
+      background: rgba(15,118,110,0.05);
+      border-color: rgba(15,118,110,0.2);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      background: var(--bg-hero);
+      border-radius: var(--border-radius-large);
+      margin: 20px 0;
+      padding: 48px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 30% 70%, rgba(147, 197, 253, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(196, 181, 253, 0.1) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    .hero__content {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero__kicker {
+      font-weight: var(--font-weight-extrabold);
+      letter-spacing: 3px;
+      color: var(--primary-accent-dark);
+      font-size: 14px;
+    }
+
+    .hero__title {
+      font-size: 48px;
+      line-height: 0.95;
+      margin: 10px 0 12px;
+      font-weight: var(--font-weight-black);
+      background: linear-gradient(135deg, var(--primary-accent), var(--primary-accent-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__lead {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 55ch;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    /* ==========================================================================
+       CARD COMPONENTS
+       ========================================================================== */
+    .card {
+      background: var(--bg-card-gradient);
+      padding: 18px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 20px var(--shadow-medium);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .card--hero {
+      background: var(--card-bg-glass);
+      padding: 22px;
+      border-radius: var(--border-radius-large);
+      box-shadow: 0 10px 30px var(--shadow-medium);
+    }
+
+    .card--ticket {
+      border-radius: var(--border-radius);
+      padding: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(251,253,255,0.95));
+      border: 1px solid rgba(15,118,110,0.06);
+    }
+
+    /* ==========================================================================
+       STAT COMPONENTS
+       ========================================================================== */
+    .stat {
+      background: var(--bg-stat);
+      padding: 14px;
+      border-radius: var(--border-radius);
+      min-width: 110px;
+      text-align: center;
+      box-shadow: 0 6px 18px var(--shadow-light);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .stat__value {
+      display: block;
+      font-size: 20px;
+      font-weight: var(--font-weight-bold);
+    }
+
+    .stat__label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       COUNTDOWN COMPONENT
+       ========================================================================== */
+    .countdown {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .countdown__box {
+      background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+      padding: 12px 14px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 64px;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .countdown__number {
+      font-size: 20px;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--primary-accent-dark);
+    }
+
+    .countdown__label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       SECTION COMPONENTS
+       ========================================================================== */
+    .section {
+      padding: 48px 0;
+      position: relative;
+    }
+
+    .section--alt {
+      background: var(--bg-section-alt);
+      border-radius: var(--border-radius-large);
+      margin: 20px 0;
+      padding: 48px 20px;
+    }
+
+    .section__title {
+      font-size: 28px;
+      font-weight: var(--font-weight-extrabold);
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       GRID COMPONENTS
+       ========================================================================== */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-auto {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    /* ==========================================================================
+       SPONSOR COMPONENTS
+       ========================================================================== */
+    .sponsors {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .sponsor-logo {
+      min-width: 90px;
+      min-height: 48px;
+      background: var(--bg-sponsor);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius-small);
+      padding: 8px;
+      font-weight: var(--font-weight-bold);
+      color: var(--primary-accent-dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    /* ==========================================================================
+       SPEAKER COMPONENTS
+       ========================================================================== */
+    .speaker {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .speaker__avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--border-radius);
+      background: var(--bg-avatar);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--primary-accent-dark);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .speaker__name {
+      margin: 0 0 6px;
+      font-weight: var(--font-weight-bold);
+    }
+
+    .speaker__title {
+      margin: 0 0 6px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: var(--font-weight-bold);
+    }
+
+    .speaker__topic {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* ==========================================================================
+       TICKET COMPONENTS
+       ========================================================================== */
+    .ticket__name {
+      font-weight: var(--font-weight-extrabold);
+      margin-bottom: 8px;
+    }
+
+    .ticket__description {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin: 8px 0;
+    }
+
+    .ticket__price {
+      font-size: 22px;
+      font-weight: var(--font-weight-black);
+      margin: 6px 0;
+      color: var(--primary-accent-dark);
+    }
+
+    .ticket__coupon {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       FOOTER COMPONENT
+       ========================================================================== */
+    .footer {
+      padding: 28px 0;
+      color: var(--text-muted);
+      background: var(--bg-section-alt);
+      border-radius: var(--border-radius-large);
+      margin-top: 20px;
+    }
+
+    .footer__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .socials a {
+      font-size: 18px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+
+    /* ==========================================================================
+       UTILITY CLASSES
+       ========================================================================== */
+    .text-center { text-align: center; }
+    .text-muted { color: var(--text-muted); }
+    .font-bold { font-weight: var(--font-weight-bold); }
+    .font-extrabold { font-weight: var(--font-weight-extrabold); }
+    .mb-0 { margin-bottom: 0; }
+    .mt-12 { margin-top: 12px; }
+    .mt-18 { margin-top: 18px; }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 980px) {
+      .hero__content {
+        grid-template-columns: 1fr;
+      }
+      
+      .header__nav ul {
+        display: none;
+      }
+      
+      .header__hamburger {
+        display: block;
+      }
+      
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero__title {
+        font-size: 36px;
+      }
+      
+      .header__logo-mark {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .hero__stats {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .stat {
+        min-width: auto;
+      }
+    }
+
+    /* ==========================================================================
+       ANIMATIONS
+       ========================================================================== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero__content {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(2,6,23,0.1);
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav-wrap">
-      <div class="logo">
-        <div class="mark">OS</div>
+  <!-- ==========================================================================
+       HEADER SECTION
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header__nav-wrap">
+      <div class="header__logo">
+        <div class="header__logo-mark">OS</div>
         <div>
-          <div style="font-weight:800">Open Source Day</div>
-          <div style="font-size:12px;color:var(--muted)">October 05, 2025 • One Day Event</div>
+          <div class="font-extrabold">Open Source Day</div>
+          <div style="font-size:12px;" class="text-muted">October 05, 2025 • One Day Event</div>
         </div>
       </div>
-      <nav>
+      <nav class="header__nav">
         <ul>
           <li><a href="#speakers">Speakers</a></li>
           <li><a href="#schedule">Schedule</a></li>
@@ -104,96 +615,132 @@
           <li><a href="#venue">Venue</a></li>
           <li><a href="#badge">Badge</a></li>
           <li><a href="#past">Past Events</a></li>
-          <li><a href="#register" class="btn btn-primary">Register Now</a></li>
+          <li><a href="#register" class="btn btn--primary">Register Now</a></li>
         </ul>
       </nav>
-      <button class="hamburger" aria-label="menu">☰</button>
+      <button class="header__hamburger" aria-label="menu">☰</button>
     </div>
   </header>
 
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
   <main class="container">
+    <!-- Hero Section -->
     <section class="hero">
-      <div>
-        <div class="kicker">OPEN</div>
-        <h1 class="title">SOURCE<br>DAY<br>2025</h1>
-        <p class="lead">Join us for a day of learning, networking, and celebrating open source innovation. Connect with developers, contribute to projects, and shape the future of technology.</p>
-        <div class="hero meta">
-          <div class="actions">
-            <button class="btn btn-primary" id="regTop">Register Now</button>
-            <button class="btn btn-ghost" id="learnTop">Learn More</button>
+      <div class="hero__content">
+        <div>
+          <div class="hero__kicker">OPEN</div>
+          <h1 class="hero__title">SOURCE<br>DAY<br>2025</h1>
+          <p class="hero__lead">Join us for a day of learning, networking, and celebrating open source innovation. Connect with developers, contribute to projects, and shape the future of technology.</p>
+          <div class="hero__actions">
+            <button class="btn btn--primary" id="regTop">Register Now</button>
+            <button class="btn btn--ghost" id="learnTop">Learn More</button>
           </div>
-          <div class="stats">
-            <div class="stat"><div style="font-size:12px;color:var(--muted)">Attendees</div><strong>600+</strong></div>
-            <div class="stat"><div style="font-size:12px;color:var(--muted)">Speakers</div><strong>20+</strong></div>
-            <div class="stat"><div style="font-size:12px;color:var(--muted)">Partners</div><strong>50+</strong></div>
+          <div class="hero__stats">
+            <div class="stat">
+              <div class="stat__label">Attendees</div>
+              <strong class="stat__value">600+</strong>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Speakers</div>
+              <strong class="stat__value">20+</strong>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Partners</div>
+              <strong class="stat__value">50+</strong>
+            </div>
           </div>
         </div>
+
+        <aside class="card card--hero">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="font-extrabold">October 05, 2025</div>
+              <div class="text-muted" style="font-size:14px">One Day Event</div>
+            </div>
+            <div style="text-align:right">
+              <div class="text-muted" style="font-size:13px">Expected</div>
+              <div class="font-black" style="font-size:22px">600+</div>
+            </div>
+          </div>
+
+          <div class="countdown" id="countdown">
+            <div class="countdown__box">
+              <div class="countdown__number" id="cd-days">0</div>
+              <div class="countdown__label">Days</div>
+            </div>
+            <div class="countdown__box">
+              <div class="countdown__number" id="cd-hours">0</div>
+              <div class="countdown__label">Hours</div>
+            </div>
+            <div class="countdown__box">
+              <div class="countdown__number" id="cd-mins">0</div>
+              <div class="countdown__label">Minutes</div>
+            </div>
+            <div class="countdown__box">
+              <div class="countdown__number" id="cd-secs">0</div>
+              <div class="countdown__label">Seconds</div>
+            </div>
+          </div>
+
+          <div class="text-center text-muted mt-12" style="font-size:13px">Countdown to the Event</div>
+        </aside>
       </div>
-
-      <aside class="card-right">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div class="date">October 05, 2025</div>
-            <div style="color:var(--muted);font-size:14px">One Day Event</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-size:13px;color:var(--muted)">Expected</div>
-            <div style="font-weight:900;font-size:22px">600+</div>
-          </div>
-        </div>
-
-        <div class="countdown" id="countdown">
-          <div class="box"><div class="num" id="cd-days">0</div><div style="font-size:12px;color:var(--muted)">Days</div></div>
-          <div class="box"><div class="num" id="cd-hours">0</div><div style="font-size:12px;color:var(--muted)">Hours</div></div>
-          <div class="box"><div class="num" id="cd-mins">0</div><div style="font-size:12px;color:var(--muted)">Minutes</div></div>
-          <div class="box"><div class="num" id="cd-secs">0</div><div style="font-size:12px;color:var(--muted)">Seconds</div></div>
-        </div>
-
-        <div style="margin-top:12px;text-align:center;color:var(--muted);font-size:13px">Countdown to the Event</div>
-      </aside>
     </section>
 
-    <section id="about">
+    <!-- About Section -->
+    <section id="about" class="section section--alt">
       <div style="display:flex;justify-content:space-between;gap:18px;align-items:flex-start">
         <div style="flex:1">
-          <h2>About Open Source Day</h2>
+          <h2 class="section__title">About Open Source Day</h2>
           <p>Open Source Day 2025 is a community-driven event celebrating the power of open source software. Join developers, maintainers, and enthusiasts for a day of learning, collaboration, and innovation.</p>
 
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px">
-            <div class="card"><strong>Learn & Contribute</strong><p class="coupon">Discover new technologies, learn best practices, and get hands-on experience contributing to real open source projects.</p></div>
-            <div class="card"><strong>Connect</strong><p class="coupon">Network with fellow developers, open source maintainers, and tech enthusiasts from the Indian tech community.</p></div>
-            <div class="card"><strong>Celebrate</strong><p class="coupon">Celebrate the achievements of the open source community and discover exciting new projects and opportunities.</p></div>
+          <div class="grid-3 mt-18">
+            <div class="card">
+              <strong class="font-bold">Learn & Contribute</strong>
+              <p class="text-muted" style="font-size:13px">Discover new technologies, learn best practices, and get hands-on experience contributing to real open source projects.</p>
+            </div>
+            <div class="card">
+              <strong class="font-bold">Connect</strong>
+              <p class="text-muted" style="font-size:13px">Network with fellow developers, open source maintainers, and tech enthusiasts from the Indian tech community.</p>
+            </div>
+            <div class="card">
+              <strong class="font-bold">Celebrate</strong>
+              <p class="text-muted" style="font-size:13px">Celebrate the achievements of the open source community and discover exciting new projects and opportunities.</p>
+            </div>
           </div>
         </div>
 
         <div style="width:320px">
           <h3>Impact in Progress</h3>
-          <div class="grid-3" style="grid-template-columns:1fr;">
-            <div class="card"><strong>420+</strong><div style="color:var(--muted);font-size:13px">Expected Attendees</div></div>
-            <div class="card"><strong>50+</strong><div style="color:var(--muted);font-size:13px">Community Partners</div></div>
-            <div class="card"><strong>20+</strong><div style="color:var(--muted);font-size:13px">Expert Speakers</div></div>
-            <div class="card"><strong>7+</strong><div style="color:var(--muted);font-size:13px">Technical Sessions</div></div>
-            <div class="card"><strong>2+</strong><div style="color:var(--muted);font-size:13px">Panel Discussion</div></div>
-            <div class="card"><strong>1</strong><div style="color:var(--muted);font-size:13px">Workshop</div></div>
+          <div style="display:grid;grid-template-columns:1fr;gap:12px">
+            <div class="card"><strong class="font-bold">420+</strong><div class="text-muted" style="font-size:13px">Expected Attendees</div></div>
+            <div class="card"><strong class="font-bold">50+</strong><div class="text-muted" style="font-size:13px">Community Partners</div></div>
+            <div class="card"><strong class="font-bold">20+</strong><div class="text-muted" style="font-size:13px">Expert Speakers</div></div>
+            <div class="card"><strong class="font-bold">7+</strong><div class="text-muted" style="font-size:13px">Technical Sessions</div></div>
+            <div class="card"><strong class="font-bold">2+</strong><div class="text-muted" style="font-size:13px">Panel Discussion</div></div>
+            <div class="card"><strong class="font-bold">1</strong><div class="text-muted" style="font-size:13px">Workshop</div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sponsors">
-      <h2>Gold Sponsors Top</h2>
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="section">
+      <h2 class="section__title">Gold Sponsors Top</h2>
       <div class="sponsors">
         <div class="sponsor-logo">OSCF</div>
         <div class="sponsor-logo">OSW</div>
         <div class="sponsor-logo">CCF</div>
       </div>
 
-      <h3 style="margin-top:18px">Event Partner</h3>
+      <h3 class="mt-18">Event Partner</h3>
       <div class="sponsors" style="margin-top:6px">
         <div class="sponsor-logo">Event Partner</div>
       </div>
 
-      <h3 style="margin-top:18px">Community Partners</h3>
+      <h3 class="mt-18">Community Partners</h3>
       <div class="sponsors">
         <div class="sponsor-logo">Partner 1</div>
         <div class="sponsor-logo">Partner 2</div>
@@ -202,140 +749,142 @@
       </div>
     </section>
 
-    <section id="speakers">
-      <h2>Past Speakers</h2>
-      <div class="speakers">
-        <!-- Repeat speaker card -->
+    <!-- Speakers Section -->
+    <section id="speakers" class="section section--alt">
+      <h2 class="section__title">Past Speakers</h2>
+      <div class="grid-auto">
         <div class="speaker card">
-          <div class="avatar">AT</div>
+          <div class="speaker__avatar">AT</div>
           <div>
-            <h4>Ashish Tiwari</h4>
-            <p style="font-weight:700;margin-bottom:6px">Principal Solutions Architect at Elastic</p>
-            <p class="coupon">Open Source Journey with Elastic</p>
+            <h4 class="speaker__name">Ashish Tiwari</h4>
+            <p class="speaker__title">Principal Solutions Architect at Elastic</p>
+            <p class="speaker__topic">Open Source Journey with Elastic</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">SV</div>
+          <div class="speaker__avatar">SV</div>
           <div>
-            <h4>Sanjay Vaghela</h4>
-            <p style="font-weight:700;margin-bottom:6px">CTO at IQM</p>
-            <p class="coupon">Open Source Technologies for a SaaS at Scale</p>
+            <h4 class="speaker__name">Sanjay Vaghela</h4>
+            <p class="speaker__title">CTO at IQM</p>
+            <p class="speaker__topic">Open Source Technologies for a SaaS at Scale</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">RP</div>
+          <div class="speaker__avatar">RP</div>
           <div>
-            <h4>Ruchit Patel</h4>
-            <p style="font-weight:700;margin-bottom:6px">Team lead at ViitorCloud Technologies</p>
-            <p class="coupon">Demystifying Open Source</p>
+            <h4 class="speaker__name">Ruchit Patel</h4>
+            <p class="speaker__title">Team lead at ViitorCloud Technologies</p>
+            <p class="speaker__topic">Demystifying Open Source</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">DS</div>
+          <div class="speaker__avatar">DS</div>
           <div>
-            <h4>Devarsh Shah</h4>
-            <p style="font-weight:700;margin-bottom:6px">Sr. Full Stack Developer at IQM</p>
-            <p class="coupon">Open Source Technologies for a SaaS at Scale</p>
+            <h4 class="speaker__name">Devarsh Shah</h4>
+            <p class="speaker__title">Sr. Full Stack Developer at IQM</p>
+            <p class="speaker__topic">Open Source Technologies for a SaaS at Scale</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">RB</div>
+          <div class="speaker__avatar">RB</div>
           <div>
-            <h4>Rishang Bhavsar</h4>
-            <p style="font-weight:700;margin-bottom:6px">Devops Engineer at smartSense Consulting Solutions</p>
-            <p class="coupon">How to start an Open Source Project and contribute on Github</p>
+            <h4 class="speaker__name">Rishang Bhavsar</h4>
+            <p class="speaker__title">Devops Engineer at smartSense Consulting Solutions</p>
+            <p class="speaker__topic">How to start an Open Source Project and contribute on Github</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">KG</div>
+          <div class="speaker__avatar">KG</div>
           <div>
-            <h4>Krupa Galiya</h4>
-            <p style="font-weight:700;margin-bottom:6px">Sr. Data scientist at PatternAI</p>
-            <p class="coupon">Significance of Open Source Contribution and Community Engagement</p>
+            <h4 class="speaker__name">Krupa Galiya</h4>
+            <p class="speaker__title">Sr. Data scientist at PatternAI</p>
+            <p class="speaker__topic">Significance of Open Source Contribution and Community Engagement</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">VP</div>
+          <div class="speaker__avatar">VP</div>
           <div>
-            <h4>Viral Parmar</h4>
-            <p style="font-weight:700;margin-bottom:6px">Director at ComExpo Cyber Security</p>
-            <p class="coupon">How Can We Create Community Around Open Source Project And Get More Contribution</p>
+            <h4 class="speaker__name">Viral Parmar</h4>
+            <p class="speaker__title">Director at ComExpo Cyber Security</p>
+            <p class="speaker__topic">How Can We Create Community Around Open Source Project And Get More Contribution</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">SV</div>
+          <div class="speaker__avatar">SV</div>
           <div>
-            <h4>Santosh V</h4>
-            <p style="font-weight:700;margin-bottom:6px">Principal Engineer at Arcesium</p>
-            <p class="coupon">Coding for Change: Hacktoberfest with Interledger</p>
+            <h4 class="speaker__name">Santosh V</h4>
+            <p class="speaker__title">Principal Engineer at Arcesium</p>
+            <p class="speaker__topic">Coding for Change: Hacktoberfest with Interledger</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">RG</div>
+          <div class="speaker__avatar">RG</div>
           <div>
-            <h4>Ronak Ganatra</h4>
-            <p style="font-weight:700;margin-bottom:6px">Sr. Wordpress Engineer at Multidots Solutions Pvt. Ltd.</p>
-            <p class="coupon">Kickstart Your Open Source Journey with Wordpress</p>
+            <h4 class="speaker__name">Ronak Ganatra</h4>
+            <p class="speaker__title">Sr. Wordpress Engineer at Multidots Solutions Pvt. Ltd.</p>
+            <p class="speaker__topic">Kickstart Your Open Source Journey with Wordpress</p>
           </div>
         </div>
 
         <div class="speaker card">
-          <div class="avatar">NS</div>
+          <div class="speaker__avatar">NS</div>
           <div>
-            <h4>Nisharg Shah</h4>
-            <p style="font-weight:700;margin-bottom:6px">Sr. Software Engineer at Coda</p>
-            <p class="coupon">Kickstart Your Open Source Journey with NodeJS</p>
+            <h4 class="speaker__name">Nisharg Shah</h4>
+            <p class="speaker__title">Sr. Software Engineer at Coda</p>
+            <p class="speaker__topic">Kickstart Your Open Source Journey with NodeJS</p>
           </div>
         </div>
-
       </div>
     </section>
 
-    <section id="venue">
-      <h2>Venue</h2>
+    <!-- Venue Section -->
+    <section id="venue" class="section">
+      <h2 class="section__title">Venue</h2>
       <div class="card" style="display:flex;flex-direction:column;gap:12px">
-        <div style="font-weight:800">Silver Oak University</div>
-        <div style="color:var(--muted)">Silver Oak University, 370/371, near Bhavik Publication, Gota Gam, Gota, Ahmedabad, Gujarat 382481</div>
+        <div class="font-extrabold">Silver Oak University</div>
+        <div class="text-muted">Silver Oak University, 370/371, near Bhavik Publication, Gota Gam, Gota, Ahmedabad, Gujarat 382481</div>
         <div>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Silver+Oak+University+Gota+Ahmedabad" target="_blank">Google Map</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Silver+Oak+University+Gota+Ahmedabad" target="_blank">Google Map</a>
         </div>
       </div>
     </section>
 
-    <section id="tickets">
-      <h2>Tickets</h2>
-      <div class="tickets">
-        <div class="ticket card">
-          <div style="font-weight:800">Early Bird Ticket</div>
-          <div style="color:var(--muted);font-size:13px;margin:8px 0">Tickets include full-access to conference, lunch, keynotes, panels, OSD goodies, and early bird discount.</div>
-          <div class="price">₹199</div>
-          <button class="btn btn-primary">Buy</button>
+    <!-- Tickets Section -->
+    <section id="tickets" class="section section--alt">
+      <h2 class="section__title">Tickets</h2>
+      <div class="grid-auto">
+        <div class="card card--ticket">
+          <div class="ticket__name">Early Bird Ticket</div>
+          <div class="ticket__description">Tickets include full-access to conference, lunch, keynotes, panels, OSD goodies, and early bird discount.</div>
+          <div class="ticket__price">₹199</div>
+          <button class="btn btn--primary">Buy</button>
         </div>
 
-        <div class="ticket card">
-          <div style="font-weight:800">Open Source with AI Workshop + OSD Conference</div>
-          <div style="color:var(--muted);font-size:13px;margin:8px 0">Use coupon code <strong>OSDWSHOP25</strong> and get Flat 30% OFF. Access to hands-on workshop and conference.</div>
-          <div class="price">₹699</div>
-          <div class="coupon">Use coupon: OSDWSHOP25</div>
-          <button class="btn btn-primary" style="margin-top:8px">Buy</button>
+        <div class="card card--ticket">
+          <div class="ticket__name">Open Source with AI Workshop + OSD Conference</div>
+          <div class="ticket__description">Use coupon code <strong>OSDWSHOP25</strong> and get Flat 30% OFF. Access to hands-on workshop and conference.</div>
+          <div class="ticket__price">₹699</div>
+          <div class="ticket__coupon">Use coupon: OSDWSHOP25</div>
+          <button class="btn btn--primary mt-12">Buy</button>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2 class="section__title">Contact</h2>
       <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
         <div style="min-width:260px">
-          <div style="font-weight:800">OSD2025</div>
-          <div style="color:var(--muted);margin-top:8px">Open Source Day 2025 - A community-driven event celebrating open source innovation. Join developers, maintainers, and enthusiasts for learning and collaboration.</div>
+          <div class="font-extrabold">OSD2025</div>
+          <div class="text-muted mt-12">Open Source Day 2025 - A community-driven event celebrating open source innovation. Join developers, maintainers, and enthusiasts for learning and collaboration.</div>
         </div>
         <div style="flex:1">
           <div class="socials">
@@ -346,31 +895,38 @@
             <a href="#" aria-label="github">🐙</a>
             <a href="#" aria-label="medium">✍️</a>
           </div>
-          <div style="margin-top:12px;color:var(--muted)">
+          <div class="mt-12 text-muted">
             <div>Contact Us</div>
-            <div style="font-weight:700">opensourceweekend@gmail.com</div>
+            <div class="font-bold">opensourceweekend@gmail.com</div>
             <div>+91 89 8080 8222</div>
             <div>+91 8401 3399 36</div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div style="color:var(--muted)">© Open Source Day 2025</div>
-      <div style="color:var(--muted)">Made with ❤️ community</div>
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer class="footer container">
+    <div class="footer__content">
+      <div class="text-muted">© Open Source Day 2025</div>
+      <div class="text-muted">Made with ❤️ community</div>
     </div>
   </footer>
 
+  <!-- ==========================================================================
+       JAVASCRIPT
+       ========================================================================== -->
   <script>
     // Countdown to Oct 05, 2025 (local timezone)
     const eventDate = new Date('2025-10-05T00:00:00');
-    function updateCountdown(){
+    
+    function updateCountdown() {
       const now = new Date();
       let diff = Math.max(0, eventDate - now);
+      
       const days = Math.floor(diff / (1000*60*60*24));
       diff -= days*(1000*60*60*24);
       const hours = Math.floor(diff / (1000*60*60));
@@ -378,46 +934,84 @@
       const mins = Math.floor(diff / (1000*60));
       diff -= mins*(1000*60);
       const secs = Math.floor(diff/1000);
+      
       document.getElementById('cd-days').textContent = days;
       document.getElementById('cd-hours').textContent = hours;
       document.getElementById('cd-mins').textContent = mins;
       document.getElementById('cd-secs').textContent = secs;
     }
+    
     updateCountdown();
-    setInterval(updateCountdown,1000);
+    setInterval(updateCountdown, 1000);
 
-    // Smooth scrolling for nav
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const href = a.getAttribute('href');
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
         if(href === '#') return;
-        const el = document.querySelector(href);
-        if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});} 
+        const target = document.querySelector(href);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+        }
       });
     });
 
-    // small mobile menu toggle
-    const ham = document.querySelector('.hamburger');
-    const navul = document.querySelector('nav ul');
-    ham && ham.addEventListener('click',()=>{
-      if(navul.style.display === 'flex') navul.style.display = 'none'; else navul.style.display = 'flex';
-      navul.style.flexDirection = 'column';
-      navul.style.background = 'white';
-      navul.style.position = 'absolute';
-      navul.style.right = '18px';
-      navul.style.top = '64px';
-      navul.style.padding = '12px';
-      navul.style.boxShadow = '0 8px 30px rgba(2,6,23,0.08)';
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.header__hamburger');
+    const nav = document.querySelector('.header__nav ul');
+    
+    if(hamburger && nav) {
+      hamburger.addEventListener('click', () => {
+        const isVisible = nav.style.display === 'flex';
+        nav.style.display = isVisible ? 'none' : 'flex';
+        
+        if(!isVisible) {
+          nav.style.flexDirection = 'column';
+          nav.style.background = 'rgba(255,255,255,0.95)';
+          nav.style.position = 'absolute';
+          nav.style.right = '18px';
+          nav.style.top = '64px';
+          nav.style.padding = '12px';
+          nav.style.boxShadow = '0 8px 30px rgba(2,6,23,0.08)';
+          nav.style.borderRadius = '12px';
+          nav.style.backdropFilter = 'blur(12px)';
+        }
+      });
+    }
+
+    // Register button functionality
+    document.getElementById('regTop')?.addEventListener('click', () => {
+      location.hash = '#tickets';
+      document.querySelector('#tickets')?.scrollIntoView({behavior: 'smooth'});
+    });
+    
+    document.getElementById('learnTop')?.addEventListener('click', () => {
+      location.hash = '#about';
+      document.querySelector('#about')?.scrollIntoView({behavior: 'smooth'});
     });
 
-    // register button clicks
-    document.getElementById('regTop').addEventListener('click',()=>{
-      location.hash = '#tickets';
-      document.querySelector('#tickets').scrollIntoView({behavior:'smooth'});
-    });
-    document.getElementById('learnTop').addEventListener('click',()=>{
-      location.hash = '#about';
-      document.querySelector('#about').scrollIntoView({behavior:'smooth'});
+    // Add smooth animations on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards for animation
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
     });
   </script>
 </body>
