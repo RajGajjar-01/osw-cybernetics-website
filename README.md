@@ -7,9 +7,9 @@ Our goal is to create a user-friendly, scalable, and responsive website that ref
 
 👥 Team Information
 
-Team Name: OSW
+Team Name: OSW cybernatics
 
-Project Name: Cybernetics Website
+Project Name: OSW Cybernetics Website
 
 Team Size: 3–4 members
 
