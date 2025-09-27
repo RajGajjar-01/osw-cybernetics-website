@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Open Source Day 2025</title>
+  <meta name="description" content="Open Source Day 2025 - community-driven event celebrating open source innovation.">
+  <style>
+    :root{
+      --accent:#0f766e;
+      --accent-2:#064e3b;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f8fafc;
+      --glass: rgba(255,255,255,0.6);
+      --max-width:1200px;
+      --radius:12px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f8fafc 0%, #eef2ff 100%);color:#0f172a;line-height:1.45}
+    .container{width:95%;max-width:var(--max-width);margin:0 auto;padding:36px 0}
+
+    /* NAV */
+    header{position:sticky;top:0;backdrop-filter:blur(6px);background:rgba(255,255,255,0.7);z-index:60;border-bottom:1px solid rgba(2,6,23,0.04)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    .cta{display:flex;gap:10px}
+    .btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-ghost{background:transparent;border:1px solid rgba(15,118,110,0.12);color:var(--accent-2)}
+    .hamburger{display:none;border:0;background:transparent}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .kicker{font-weight:800;letter-spacing:3px;color:var(--accent-2);font-size:14px}
+    .title{font-size:48px;line-height:0.95;margin:10px 0 12px;font-weight:900}
+    .lead{color:var(--muted);margin-bottom:18px;max-width:55ch}
+    .hero .actions{display:flex;gap:12px;margin-top:12px}
+    .stats{display:flex;gap:14px;margin-top:18px}
+    .stat{background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.9));padding:14px;border-radius:12px;min-width:110px;text-align:center;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .stat strong{display:block;font-size:20px}
+    .card-right{background:var(--card);padding:22px;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .date{font-weight:800}
+    .countdown{display:flex;gap:12px;justify-content:center;margin-top:10px}
+    .countdown .box{background:#f1f5f9;padding:12px 14px;border-radius:10px;text-align:center;min-width:64px}
+    .countdown .num{font-size:20px;font-weight:800}
+
+    /* SECTIONS */
+    section{padding:48px 0;border-top:1px dashed rgba(2,6,23,0.03)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+    .sponsors{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .sponsor-logo{min-width:90px;min-height:48px;background:linear-gradient(90deg,#e6fffa,#f0fdf4);display:flex;align-items:center;justify-content:center;border-radius:8px;padding:8px;font-weight:700;color:var(--accent-2)}
+
+    /* Speakers */
+    .speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .speaker{display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#eef2ff,#eff6ff);display:flex;align-items:center;justify-content:center;font-weight:800}
+    .speaker h4{margin:0 0 6px}
+    .speaker p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Tickets */
+    .tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .ticket{border-radius:12px;padding:18px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(15,118,110,0.06)}
+    .price{font-size:22px;font-weight:900;margin:6px 0}
+    .coupon{font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted)}
+    .socials{display:flex;gap:12px}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      nav ul{display:none}
+      .hamburger{display:block}
+    }
+    @media (max-width:520px){
+      .title{font-size:36px}
+      .logo .mark{width:40px;height:40px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <div class="logo">
+        <div class="mark">OS</div>
+        <div>
+          <div style="font-weight:800">Open Source Day</div>
+          <div style="font-size:12px;color:var(--muted)">October 05, 2025 • One Day Event</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#tickets">Tickets</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#venue">Venue</a></li>
+          <li><a href="#badge">Badge</a></li>
+          <li><a href="#past">Past Events</a></li>
+          <li><a href="#register" class="btn btn-primary">Register Now</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="menu">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="kicker">OPEN</div>
+        <h1 class="title">SOURCE<br>DAY<br>2025</h1>
+        <p class="lead">Join us for a day of learning, networking, and celebrating open source innovation. Connect with developers, contribute to projects, and shape the future of technology.</p>
+        <div class="hero meta">
+          <div class="actions">
+            <button class="btn btn-primary" id="regTop">Register Now</button>
+            <button class="btn btn-ghost" id="learnTop">Learn More</button>
+          </div>
+          <div class="stats">
+            <div class="stat"><div style="font-size:12px;color:var(--muted)">Attendees</div><strong>600+</strong></div>
+            <div class="stat"><div style="font-size:12px;color:var(--muted)">Speakers</div><strong>20+</strong></div>
+            <div class="stat"><div style="font-size:12px;color:var(--muted)">Partners</div><strong>50+</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card-right">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="date">October 05, 2025</div>
+            <div style="color:var(--muted);font-size:14px">One Day Event</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:13px;color:var(--muted)">Expected</div>
+            <div style="font-weight:900;font-size:22px">600+</div>
+          </div>
+        </div>
+
+        <div class="countdown" id="countdown">
+          <div class="box"><div class="num" id="cd-days">0</div><div style="font-size:12px;color:var(--muted)">Days</div></div>
+          <div class="box"><div class="num" id="cd-hours">0</div><div style="font-size:12px;color:var(--muted)">Hours</div></div>
+          <div class="box"><div class="num" id="cd-mins">0</div><div style="font-size:12px;color:var(--muted)">Minutes</div></div>
+          <div class="box"><div class="num" id="cd-secs">0</div><div style="font-size:12px;color:var(--muted)">Seconds</div></div>
+        </div>
+
+        <div style="margin-top:12px;text-align:center;color:var(--muted);font-size:13px">Countdown to the Event</div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div style="display:flex;justify-content:space-between;gap:18px;align-items:flex-start">
+        <div style="flex:1">
+          <h2>About Open Source Day</h2>
+          <p>Open Source Day 2025 is a community-driven event celebrating the power of open source software. Join developers, maintainers, and enthusiasts for a day of learning, collaboration, and innovation.</p>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px">
+            <div class="card"><strong>Learn & Contribute</strong><p class="coupon">Discover new technologies, learn best practices, and get hands-on experience contributing to real open source projects.</p></div>
+            <div class="card"><strong>Connect</strong><p class="coupon">Network with fellow developers, open source maintainers, and tech enthusiasts from the Indian tech community.</p></div>
+            <div class="card"><strong>Celebrate</strong><p class="coupon">Celebrate the achievements of the open source community and discover exciting new projects and opportunities.</p></div>
+          </div>
+        </div>
+
+        <div style="width:320px">
+          <h3>Impact in Progress</h3>
+          <div class="grid-3" style="grid-template-columns:1fr;">
+            <div class="card"><strong>420+</strong><div style="color:var(--muted);font-size:13px">Expected Attendees</div></div>
+            <div class="card"><strong>50+</strong><div style="color:var(--muted);font-size:13px">Community Partners</div></div>
+            <div class="card"><strong>20+</strong><div style="color:var(--muted);font-size:13px">Expert Speakers</div></div>
+            <div class="card"><strong>7+</strong><div style="color:var(--muted);font-size:13px">Technical Sessions</div></div>
+            <div class="card"><strong>2+</strong><div style="color:var(--muted);font-size:13px">Panel Discussion</div></div>
+            <div class="card"><strong>1</strong><div style="color:var(--muted);font-size:13px">Workshop</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors">
+      <h2>Gold Sponsors Top</h2>
+      <div class="sponsors">
+        <div class="sponsor-logo">OSCF</div>
+        <div class="sponsor-logo">OSW</div>
+        <div class="sponsor-logo">CCF</div>
+      </div>
+
+      <h3 style="margin-top:18px">Event Partner</h3>
+      <div class="sponsors" style="margin-top:6px">
+        <div class="sponsor-logo">Event Partner</div>
+      </div>
+
+      <h3 style="margin-top:18px">Community Partners</h3>
+      <div class="sponsors">
+        <div class="sponsor-logo">Partner 1</div>
+        <div class="sponsor-logo">Partner 2</div>
+        <div class="sponsor-logo">Partner 3</div>
+        <div class="sponsor-logo">Partner 4</div>
+      </div>
+    </section>
+
+    <section id="speakers">
+      <h2>Past Speakers</h2>
+      <div class="speakers">
+        <!-- Repeat speaker card -->
+        <div class="speaker card">
+          <div class="avatar">AT</div>
+          <div>
+            <h4>Ashish Tiwari</h4>
+            <p style="font-weight:700;margin-bottom:6px">Principal Solutions Architect at Elastic</p>
+            <p class="coupon">Open Source Journey with Elastic</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">SV</div>
+          <div>
+            <h4>Sanjay Vaghela</h4>
+            <p style="font-weight:700;margin-bottom:6px">CTO at IQM</p>
+            <p class="coupon">Open Source Technologies for a SaaS at Scale</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">RP</div>
+          <div>
+            <h4>Ruchit Patel</h4>
+            <p style="font-weight:700;margin-bottom:6px">Team lead at ViitorCloud Technologies</p>
+            <p class="coupon">Demystifying Open Source</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">DS</div>
+          <div>
+            <h4>Devarsh Shah</h4>
+            <p style="font-weight:700;margin-bottom:6px">Sr. Full Stack Developer at IQM</p>
+            <p class="coupon">Open Source Technologies for a SaaS at Scale</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">RB</div>
+          <div>
+            <h4>Rishang Bhavsar</h4>
+            <p style="font-weight:700;margin-bottom:6px">Devops Engineer at smartSense Consulting Solutions</p>
+            <p class="coupon">How to start an Open Source Project and contribute on Github</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">KG</div>
+          <div>
+            <h4>Krupa Galiya</h4>
+            <p style="font-weight:700;margin-bottom:6px">Sr. Data scientist at PatternAI</p>
+            <p class="coupon">Significance of Open Source Contribution and Community Engagement</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">VP</div>
+          <div>
+            <h4>Viral Parmar</h4>
+            <p style="font-weight:700;margin-bottom:6px">Director at ComExpo Cyber Security</p>
+            <p class="coupon">How Can We Create Community Around Open Source Project And Get More Contribution</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">SV</div>
+          <div>
+            <h4>Santosh Viswanatham</h4>
+            <p style="font-weight:700;margin-bottom:6px">Principal Engineer at Arcesium</p>
+            <p class="coupon">Coding for Change: Hacktoberfest with Interledger</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">RG</div>
+          <div>
+            <h4>Ronak Ganatra</h4>
+            <p style="font-weight:700;margin-bottom:6px">Sr. Wordpress Engineer at Multidots Solutions Pvt. Ltd.</p>
+            <p class="coupon">Kickstart Your Open Source Journey with Wordpress</p>
+          </div>
+        </div>
+
+        <div class="speaker card">
+          <div class="avatar">NS</div>
+          <div>
+            <h4>Nisharg Shah</h4>
+            <p style="font-weight:700;margin-bottom:6px">Sr. Software Engineer at Coda</p>
+            <p class="coupon">Kickstart Your Open Source Journey with NodeJS</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="venue">
+      <h2>Venue</h2>
+      <div class="card" style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-weight:800">Silver Oak University</div>
+        <div style="color:var(--muted)">Silver Oak University, 370/371, near Bhavik Publication, Gota Gam, Gota, Ahmedabad, Gujarat 382481</div>
+        <div>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Silver+Oak+University+Gota+Ahmedabad" target="_blank">Google Map</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="tickets">
+      <h2>Tickets</h2>
+      <div class="tickets">
+        <div class="ticket card">
+          <div style="font-weight:800">Early Bird Ticket</div>
+          <div style="color:var(--muted);font-size:13px;margin:8px 0">Tickets include full-access to conference, lunch, keynotes, panels, OSD goodies, and early bird discount.</div>
+          <div class="price">₹199</div>
+          <button class="btn btn-primary">Buy</button>
+        </div>
+
+        <div class="ticket card">
+          <div style="font-weight:800">Open Source with AI Workshop + OSD Conference</div>
+          <div style="color:var(--muted);font-size:13px;margin:8px 0">Use coupon code <strong>OSDWSHOP25</strong> and get Flat 30% OFF. Access to hands-on workshop and conference.</div>
+          <div class="price">₹699</div>
+          <div class="coupon">Use coupon: OSDWSHOP25</div>
+          <button class="btn btn-primary" style="margin-top:8px">Buy</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="min-width:260px">
+          <div style="font-weight:800">OSD2025</div>
+          <div style="color:var(--muted);margin-top:8px">Open Source Day 2025 - A community-driven event celebrating open source innovation. Join developers, maintainers, and enthusiasts for learning and collaboration.</div>
+        </div>
+        <div style="flex:1">
+          <div class="socials">
+            <a href="#" aria-label="facebook">📘</a>
+            <a href="#" aria-label="twitter">🐦</a>
+            <a href="#" aria-label="instagram">📸</a>
+            <a href="#" aria-label="linkedin">💼</a>
+            <a href="#" aria-label="github">🐙</a>
+            <a href="#" aria-label="medium">✍️</a>
+          </div>
+          <div style="margin-top:12px;color:var(--muted)">
+            <div>Contact Us</div>
+            <div style="font-weight:700">opensourceweekend@gmail.com</div>
+            <div>+91 89 8080 8222</div>
+            <div>+91 8401 3399 36</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div style="color:var(--muted)">© Open Source Day 2025</div>
+      <div style="color:var(--muted)">Made with ❤️ community</div>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown to Oct 05, 2025 (local timezone)
+    const eventDate = new Date('2025-10-05T00:00:00');
+    function updateCountdown(){
+      const now = new Date();
+      let diff = Math.max(0, eventDate - now);
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days*(1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours*(1000*60*60);
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins*(1000*60);
+      const secs = Math.floor(diff/1000);
+      document.getElementById('cd-days').textContent = days;
+      document.getElementById('cd-hours').textContent = hours;
+      document.getElementById('cd-mins').textContent = mins;
+      document.getElementById('cd-secs').textContent = secs;
+    }
+    updateCountdown();
+    setInterval(updateCountdown,1000);
+
+    // Smooth scrolling for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href = a.getAttribute('href');
+        if(href === '#') return;
+        const el = document.querySelector(href);
+        if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});} 
+      });
+    });
+
+    // small mobile menu toggle
+    const ham = document.querySelector('.hamburger');
+    const navul = document.querySelector('nav ul');
+    ham && ham.addEventListener('click',()=>{
+      if(navul.style.display === 'flex') navul.style.display = 'none'; else navul.style.display = 'flex';
+      navul.style.flexDirection = 'column';
+      navul.style.background = 'white';
+      navul.style.position = 'absolute';
+      navul.style.right = '18px';
+      navul.style.top = '64px';
+      navul.style.padding = '12px';
+      navul.style.boxShadow = '0 8px 30px rgba(2,6,23,0.08)';
+    });
+
+    // register button clicks
+    document.getElementById('regTop').addEventListener('click',()=>{
+      location.hash = '#tickets';
+      document.querySelector('#tickets').scrollIntoView({behavior:'smooth'});
+    });
+    document.getElementById('learnTop').addEventListener('click',()=>{
+      location.hash = '#about';
+      document.querySelector('#about').scrollIntoView({behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
