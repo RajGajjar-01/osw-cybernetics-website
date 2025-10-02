@@ -1,0 +1,82 @@
+name: Documentation Improvement
+description: Improve or add documentation for the OSW Website project
+title: '[DOCS] '
+labels: ['documentation']
+assignees: []
+body:
+  - type: input
+    id: documentation_location
+    attributes:
+      label: Documentation Location
+      description: File or section that needs improvement
+      placeholder: "e.g., README.md, CONTRIBUTING.md, src/components/Header.astro"
+    validations:
+      required: true
+  - type: checkboxes
+    id: issue_type
+    attributes:
+      label: Issue Type
+      description: What's wrong with the current documentation?
+      options:
+        - label: Missing information
+        - label: Outdated information
+        - label: Unclear/confusing
+        - label: Incorrect information
+        - label: Missing examples
+        - label: Broken links
+        - label: Other
+  - type: textarea
+    id: current_documentation
+    attributes:
+      label: Current Documentation
+      description: If updating existing docs, paste the current text
+      placeholder: Paste current documentation here...
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    id: proposed_improvement
+    attributes:
+      label: Proposed Improvement
+      description: Provide your proposed documentation
+      placeholder: Paste your proposed documentation here...
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: why_this_matters
+    attributes:
+      label: Why This Matters
+      description: Explain how this helps contributors/users
+      placeholder: Explain the impact of this documentation improvement...
+    validations:
+      required: true
+  - type: checkboxes
+    id: target_audience
+    attributes:
+      label: Target Audience
+      description: Who is this documentation for? (check all that apply)
+      options:
+        - label: New contributors
+        - label: Developers
+        - label: Content writers
+        - label: Maintainers
+        - label: End users
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any examples, references, or related docs
+      placeholder: Add links or other relevant information...
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I've identified the specific documentation issue
+          required: true
+        - label: I've provided a clear improvement suggestion
+          required: false
