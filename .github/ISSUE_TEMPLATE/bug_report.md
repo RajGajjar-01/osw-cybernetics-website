@@ -14,7 +14,6 @@ assignees: ''
 1. Go to [page/URL]
 2. Click on [element]
 3. Scroll to [section]
-4. See error
 
 ## Expected vs Actual Behavior
 **Expected:** [What should happen]
