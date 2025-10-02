@@ -1,0 +1,143 @@
+name: Bug Report
+description: Report a bug or unexpected behavior on the OSW Website
+title: '[BUG] '
+labels: ['bug']
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Description
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug Description
+      description: Clear description of what's wrong
+      placeholder: Describe the bug you encountered...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Steps to Reproduce
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the issue
+      placeholder: |
+        1. Go to [page/URL]
+        2. Click on [element]
+        3. Scroll to [section]
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Expected vs Actual Behavior
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen
+      placeholder: Describe what you expected to happen...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happens
+      placeholder: Describe what actually happened...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Environment
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Browser name and version
+      placeholder: "e.g., Chrome 120, Firefox 121, Safari 17"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Device type
+      placeholder: "e.g., Desktop, Mobile iPhone 14, Tablet"
+    validations:
+      required: true
+
+  - type: input
+    id: operating_system
+    attributes:
+      label: Operating System
+      description: OS name and version
+      placeholder: "e.g., Windows 11, macOS 14, Android"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Screenshots
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Attach screenshots or screen recordings if applicable
+      placeholder: Drag and drop your images here or paste them directly
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Console Errors (if any)
+
+  - type: textarea
+    id: console_errors
+    attributes:
+      label: Console Errors
+      description: Paste any browser console errors here - Press F12 to open DevTools
+      render: shell
+      placeholder: Paste console errors here...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Add any additional context about the problem here...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I've searched existing issues to avoid duplicates
+          required: true
+        - label: I've provided steps to reproduce
+          required: false
+        - label: I've included my environment details
+          required: false
