@@ -1,6 +1,6 @@
 
 ---
-name: Bug Report
+name: Bug Report MD
 about: Report a bug or unexpected behavior on the OSW Website
 title: '[BUG] '
 labels: 'bug'
