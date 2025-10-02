@@ -18,11 +18,11 @@ body:
       label: Issue Type
       description: What's the problem? (check all that apply)
       options:
-        - label: Missing info
-        - label: Outdated info
-        - label: Unclear
-        - label: Incorrect
-        - label: No examples
+        - label: Missing information
+        - label: Outdated information
+        - label: Unclear/confusing
+        - label: Incorrect information
+        - label: Missing examples
         - label: Broken links
         - label: Other
   - type: textarea
