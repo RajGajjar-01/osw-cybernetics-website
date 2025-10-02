@@ -5,11 +5,6 @@ labels: ['bug']
 assignees: []
 
 body:
-  - type: markdown
-    attributes:
-      value: |
-        ## Bug Description
-
   - type: textarea
     id: bug_description
     attributes:
