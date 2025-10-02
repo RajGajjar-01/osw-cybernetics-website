@@ -18,11 +18,11 @@ body:
       label: Issue Type
       description: What's the problem?
       options:
-        - Missing information
-        - Outdated information
-        - Unclear/confusing
-        - Incorrect information
-        - Missing examples
+        - Missing info
+        - Outdated info
+        - Unclear
+        - Incorrect
+        - No examples
         - Broken links
         - Other
     validations:
