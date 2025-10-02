@@ -28,17 +28,6 @@ body:
       placeholder: Explain the benefits and use cases...
     validations:
       required: true
-  - type: checkboxes
-    id: target_users
-    attributes:
-      label: Target Users
-      description: Who will benefit from this feature? (check all that apply)
-      options:
-        - label: Event attendees
-        - label: Speakers
-        - label: Sponsors
-        - label: Organizers
-        - label: Contributors
   - type: textarea
     id: design_mockups
     attributes:
