@@ -1,21 +1,24 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
+name: Feature Request
+about: Suggest a new feature or enhancement for the OSW Website
+title: '[FEATURE] '
+labels: 'enhancement'
 assignees: ''
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Problem Statement
+[Describe the problem or limitation you're facing. What user need does this address?]
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## Proposed Solution
+[Describe your proposed solution in detail. How should this feature work?]
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Benefits
+[Explain who will benefit from this feature and why. Describe the use cases.]
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## Design/Mockups
+[Drag and drop images or paste links to similar features/implementations]
+
+## Additional Context
+[Add any technical considerations, alternatives considered, or other relevant information]
 
 **Before submitting:** Please search existing issues to avoid duplicates before submitting.
