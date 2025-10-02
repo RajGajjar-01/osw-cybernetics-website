@@ -14,11 +14,6 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        ## Steps to Reproduce
-
   - type: textarea
     id: steps_to_reproduce
     attributes:
@@ -30,11 +25,6 @@ body:
         3. Scroll to [section]
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        ## Expected vs Actual Behavior
 
   - type: textarea
     id: expected_behavior
@@ -53,11 +43,6 @@ body:
       placeholder: Describe what actually happened...
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        ## Environment
 
   - type: input
     id: browser
@@ -86,11 +71,6 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        ## Screenshots
-
   - type: textarea
     id: screenshots
     attributes:
@@ -99,11 +79,6 @@ body:
       placeholder: Drag and drop your images here or paste them directly
     validations:
       required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        ## Console Errors (if any)
 
   - type: textarea
     id: console_errors
