@@ -9,28 +9,30 @@ body:
     attributes:
       label: Documentation Location
       description: File or section that needs improvement
-      placeholder: "e.g., README.md, CONTRIBUTING.md, src/components/Header.astro"
+      placeholder: "e.g., README.md, CONTRIBUTING.md"
     validations:
       required: true
-  - type: checkboxes
+  - type: dropdown
     id: issue_type
     attributes:
       label: Issue Type
-      description: What's wrong with the current documentation?
+      description: What's the problem?
       options:
-        - label: Missing information
-        - label: Outdated information
-        - label: Unclear/confusing
-        - label: Incorrect information
-        - label: Missing examples
-        - label: Broken links
-        - label: Other
+        - Missing information
+        - Outdated information
+        - Unclear/confusing
+        - Incorrect information
+        - Missing examples
+        - Broken links
+        - Other
+    validations:
+      required: true
   - type: textarea
     id: current_documentation
     attributes:
       label: Current Documentation
-      description: If updating existing docs, paste the current text
-      placeholder: Paste current documentation here...
+      description: Paste the current text (if updating existing docs)
+      placeholder: Current documentation text...
       render: markdown
     validations:
       required: false
@@ -38,8 +40,8 @@ body:
     id: proposed_improvement
     attributes:
       label: Proposed Improvement
-      description: Provide your proposed documentation
-      placeholder: Paste your proposed documentation here...
+      description: Your proposed documentation
+      placeholder: Improved documentation text...
       render: markdown
     validations:
       required: true
@@ -47,36 +49,14 @@ body:
     id: why_this_matters
     attributes:
       label: Why This Matters
-      description: Explain how this helps contributors/users
-      placeholder: Explain the impact of this documentation improvement...
+      description: How does this help users/contributors?
+      placeholder: Explain the impact...
     validations:
       required: true
-  - type: checkboxes
-    id: target_audience
-    attributes:
-      label: Target Audience
-      description: Who is this documentation for? (check all that apply)
-      options:
-        - label: New contributors
-        - label: Developers
-        - label: Content writers
-        - label: Maintainers
-        - label: End users
-  - type: textarea
-    id: additional_context
-    attributes:
-      label: Additional Context
-      description: Any examples, references, or related docs
-      placeholder: Add links or other relevant information...
-    validations:
-      required: false
   - type: checkboxes
     id: checklist
     attributes:
       label: Checklist
-      description: Please confirm the following
       options:
-        - label: I've identified the specific documentation issue
+        - label: I've searched existing issues to avoid duplicates
           required: true
-        - label: I've provided a clear improvement suggestion
-          required: false
