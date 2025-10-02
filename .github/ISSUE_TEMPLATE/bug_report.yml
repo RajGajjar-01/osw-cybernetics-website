@@ -1,113 +1,176 @@
-name: Bug Report
+name: 🐛 Bug Report
 description: Report a bug or unexpected behavior on the OSW Website
 title: '[BUG] '
 labels: ['bug']
 assignees: []
-
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank you for reporting a bug! 🐛
+        Please fill out the information below to help us understand and fix the issue quickly.
+        
+        **Tip:** The more details you provide, the faster we can resolve the issue!
+
   - type: textarea
     id: bug_description
     attributes:
-      label: Bug Description
-      description: Clear description of what's wrong
-      placeholder: Describe the bug you encountered...
+      label: 🔍 Bug Description
+      description: Provide a clear and concise description of what's wrong
+      placeholder: |
+        Example: The "Register Now" button on the homepage doesn't redirect to the registration page when clicked.
     validations:
       required: true
 
   - type: textarea
     id: steps_to_reproduce
     attributes:
-      label: Steps to Reproduce
-      description: Detailed steps to reproduce the issue
+      label: 📝 Steps to Reproduce
+      description: Provide detailed steps so we can reproduce the issue
       placeholder: |
-        1. Go to [page/URL]
-        2. Click on [element]
-        3. Scroll to [section]
+        1. Go to 'https://osw.example.com'
+        2. Scroll down to the 'Register Now' section
+        3. Click on the 'Register Now' button
+        4. Notice that nothing happens / page doesn't redirect
+      value: |
+        1. 
+        2. 
+        3. 
+        4. 
     validations:
       required: true
 
   - type: textarea
     id: expected_behavior
     attributes:
-      label: Expected Behavior
-      description: What should happen
-      placeholder: Describe what you expected to happen...
+      label: ✅ Expected Behavior
+      description: What did you expect to happen?
+      placeholder: |
+        Example: Clicking the button should redirect me to the registration form page.
     validations:
       required: true
 
   - type: textarea
     id: actual_behavior
     attributes:
-      label: Actual Behavior
-      description: What actually happens
-      placeholder: Describe what actually happened...
+      label: ❌ Actual Behavior
+      description: What actually happened instead?
+      placeholder: |
+        Example: Nothing happens when I click the button. The page stays on the homepage.
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## 💻 Environment Details
+        Help us understand your setup by providing the following information:
 
   - type: input
     id: browser
     attributes:
-      label: Browser
-      description: Browser name and version
-      placeholder: "e.g., Chrome 120, Firefox 121, Safari 17"
+      label: 🌐 Browser
+      description: Which browser are you using? Include the version number.
+      placeholder: "Chrome 120.0.6099.109 / Firefox 121.0 / Safari 17.2"
     validations:
       required: true
 
   - type: input
     id: device
     attributes:
-      label: Device
-      description: Device type
-      placeholder: "e.g., Desktop, Mobile iPhone 14, Tablet"
+      label: 📱 Device
+      description: What device are you using?
+      placeholder: "Desktop / Laptop / iPhone 14 Pro / Samsung Galaxy S23 / iPad Air"
     validations:
       required: true
 
   - type: input
     id: operating_system
     attributes:
-      label: Operating System
-      description: OS name and version
-      placeholder: "e.g., Windows 11, macOS 14, Android"
+      label: 🖥️ Operating System
+      description: What OS are you running? Include the version.
+      placeholder: "Windows 11 / macOS Sonoma 14.2 / Ubuntu 22.04 / iOS 17.2 / Android 14"
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## 📎 Additional Information (Optional but helpful!)
 
   - type: textarea
     id: screenshots
     attributes:
-      label: Screenshots
-      description: Attach screenshots or screen recordings if applicable
-      placeholder: Drag and drop your images here or paste them directly
+      label: 📸 Screenshots / Screen Recording
+      description: |
+        Visual evidence helps tremendously! You can:
+        - Drag and drop images directly here
+        - Paste screenshots from clipboard (Ctrl+V / Cmd+V)
+        - Add screen recordings or GIFs
+      placeholder: Drag and drop your images here, or paste them directly (Ctrl+V / Cmd+V)
     validations:
       required: false
 
   - type: textarea
     id: console_errors
     attributes:
-      label: Console Errors
-      description: Paste any browser console errors here - Press F12 to open DevTools
+      label: 🔴 Console Errors
+      description: |
+        **How to find console errors:**
+        1. Press `F12` (Windows/Linux) or `Cmd+Option+J` (Mac) to open DevTools
+        2. Click on the "Console" tab
+        3. Look for red error messages
+        4. Copy and paste them here
       render: shell
-      placeholder: Paste console errors here...
+      placeholder: |
+        Example:
+        Uncaught TypeError: Cannot read property 'addEventListener' of null
+            at script.js:25
     validations:
       required: false
 
   - type: textarea
     id: additional_context
     attributes:
-      label: Additional Context
-      description: Any other relevant information
-      placeholder: Add any additional context about the problem here...
+      label: 📋 Additional Context
+      description: |
+        Any other information that might help us debug this issue?
+        - Does this happen every time or intermittently?
+        - Did this work before? When did it break?
+        - Are you using any browser extensions?
+        - Network conditions (slow internet, VPN, etc.)?
+      placeholder: |
+        Example: This issue only happens when I'm logged in. It works fine when I'm logged out.
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## ✅ Final Checklist
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: Checklist
-      description: Please confirm the following
+      label: Pre-submission Checklist
+      description: Please confirm you've done the following before submitting
       options:
-        - label: I've searched existing issues to avoid duplicates
+        - label: I've searched [existing issues](../../issues?q=is%3Aissue+label%3Abug) to ensure this isn't a duplicate
           required: true
-        - label: I've provided steps to reproduce
-          required: false
-        - label: I've included my environment details
-          required: false
+        - label: I've provided clear steps to reproduce the issue
+          required: true
+        - label: I've included my browser, device, and OS information
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Thank you for helping improve the OSW Website! 🚀**
+        
+        Our maintainers will review your bug report and respond as soon as possible.
+        
+        💬 Join our community: https://t.me/oscfcommunity
