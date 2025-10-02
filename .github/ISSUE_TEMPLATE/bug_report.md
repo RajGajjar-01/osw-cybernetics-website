@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 ---
 name: Bug Report
@@ -44,7 +43,6 @@ assignees: ''
 - [ ] I've searched existing issues to avoid duplicates
 - [ ] I've provided steps to reproduce
 - [ ] I've included my environment details
-=======
 ---
 name: Bug report
 about: Create a report to help us improve
@@ -83,4 +81,3 @@ If applicable, add screenshots to help explain your problem.
 
 **Additional context**
 Add any other context about the problem here.
->>>>>>> 9f498871b4cac97dede27a19f86e88bd5aa6e7a9
