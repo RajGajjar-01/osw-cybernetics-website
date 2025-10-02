@@ -12,21 +12,19 @@ body:
       placeholder: "e.g., README.md, CONTRIBUTING.md"
     validations:
       required: true
-  - type: dropdown
+  - type: checkboxes
     id: issue_type
     attributes:
       label: Issue Type
-      description: What's the problem?
+      description: What's the problem? (check all that apply)
       options:
-        - Missing info
-        - Outdated info
-        - Unclear
-        - Incorrect
-        - No examples
-        - Broken links
-        - Other
-    validations:
-      required: true
+        - label: Missing info
+        - label: Outdated info
+        - label: Unclear
+        - label: Incorrect
+        - label: No examples
+        - label: Broken links
+        - label: Other
   - type: textarea
     id: current_documentation
     attributes:
